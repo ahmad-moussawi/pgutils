@@ -6,7 +6,7 @@ Phonegap 3.*.* plugin that contains many helpful utils.
 
 Install: ```cordova plugin add https://github.com/ahmad-moussawi/pgutils.git```
 
-Delete:  ```cordova plugin rm pgutils```
+Delete:  ```cordova plugin rm org.apache.cordova.pgutils```
 
 use: 
 
@@ -20,3 +20,7 @@ function(error) { /* error */
 	console.log(error);
 });
 ```
+
+Permissions:
+
+This plugin requires the **android.permission.READ_PHONE_STATE** permission

@@ -15,8 +15,10 @@
        KIND, either express or implied.  See the License for the
        specific language governing permissions and limitations
        under the License.
-*/
+ */
 package org.apache.cordova.pgUtils;
+
+import java.util.UUID;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -24,55 +26,53 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.ComponentName;
-import android.content.pm.PackageManager;
+import android.telephony.TelephonyManager;
 
 /**
  * This class provides access to vibration on the device.
  */
 public class pgUtils extends CordovaPlugin {
 
-    /**
-     * Constructor.
-     */
-    public pgUtils() { }
+  /**
+   * Constructor.
+   */
+  public pgUtils() { }
 
-    /**
-     * Executes the request and returns PluginResult.
-     *
-     * @param action            The action to execute.
-     * @param args              JSONArray of arguments for the plugin.
-     * @param callbackContext   The callback context used when calling back into JavaScript.
-     * @return                  True when the action was valid, false otherwise.
-     */
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        if (action.equals("getUniqueDeviceId")) {
-            this.getUniqueDeviceId(callbackContext, this.cordova.getActivity().getApplicationContext());
-        }
-		
-		    return true;
+  /**
+   * Executes the request and returns PluginResult.
+   *
+   * @param action            The action to execute.
+   * @param args              JSONArray of arguments for the plugin.
+   * @param callbackContext   The callback context used when calling back into JavaScript.
+   * @return                  True when the action was valid, false otherwise.
+   */
+  public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+    if (action.equals("getUniqueDeviceId")) {
+      this.getUniqueDeviceId(callbackContext, this.cordova.getActivity().getApplicationContext());
     }
 
-    //--------------------------------------------------------------------------
-    // LOCAL METHODS
-    //--------------------------------------------------------------------------
-  
+    return true;
+  }
+
+  //--------------------------------------------------------------------------
+  // LOCAL METHODS
+  //--------------------------------------------------------------------------
+
 
   public void getUniqueDeviceId(CallbackContext callback, Context context){
 
     try {
-          final TelephonyManager tm = (TelephonyManager) 
+      final TelephonyManager tm = (TelephonyManager) 
           context.getSystemService(Context.TELEPHONY_SERVICE);
-        
-        String tmDevice = "" + tm.getDeviceId();
-        androidId = "" + android.provider.Settings.Secure.getString(context.getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
-        UUID deviceUuid = new UUID(androidId.hashCode(), ((long)tmDevice.hashCode()));
-        String deviceId = deviceUuid.toString();
 
-        callback.success(deviceId);
+      String tmDevice = "" + tm.getDeviceId(),
+          androidId = "" + android.provider.Settings.Secure.getString(context.getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
+      UUID deviceUuid = new UUID(androidId.hashCode(), ((long)tmDevice.hashCode()));
+      String deviceId = deviceUuid.toString();
+
+      callback.success(deviceId);
     } catch (Exception e) {
-        callback.error(e.toString());
+      callback.error(e.toString());
     }
 
   }

@@ -28,7 +28,7 @@ var platform = require('cordova/platform');
  * @param {Function} completeCallback   The callback that is called when open app
  */
 module.exports = {
-	getUniqueDeviceId: function(message, completeCallback, errorCallback) {
+	getUniqueDeviceId: function(completeCallback, errorCallback) {
 		exec(completeCallback, errorCallback, "pgUtils", "getUniqueDeviceId", []);
 	}
 }

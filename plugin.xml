@@ -9,7 +9,7 @@
     <license>Apache 2.0</license>
     <keywords>cordova, pgUtils, getuniqueid</keywords>
 
-    <js-module src="www/pgUtils.js" name="pgutils">
+    <js-module src="www/pgUtils.js" name="pgUtils">
         <merges target="navigator.pgUtils" />
     </js-module>
 
@@ -17,11 +17,11 @@
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="pgUtils">
-                <param name="android-package" value="org.apache.cordova.pgutils.pgutils"/>
+                <param name="android-package" value="org.apache.cordova.pgUtils.pgUtils"/>
             </feature>
         </config-file>
 
-        <source-file src="src/android/pgUtils.java" target-dir="src/org/apache/cordova/pgutils" />
+        <source-file src="src/android/pgUtils.java" target-dir="src/org/apache/cordova/pgUtils" />
     </platform>
 
 </plugin>

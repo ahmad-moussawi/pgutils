@@ -9,19 +9,41 @@
     <license>Apache 2.0</license>
     <keywords>cordova, pgUtils, getuniqueid</keywords>
 
-    <js-module src="www/pgUtils.js" name="pgUtils">
-        <merges target="navigator.pgUtils" />
+    <js-module src="www/pgUtils.js" name="PGUtils">
+        <merges target="navigator.PGUtils" />
     </js-module>
 
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="pgUtils">
-                <param name="android-package" value="org.apache.cordova.pgUtils.pgUtils"/>
+            <feature name="PGUtils">
+                <param name="android-package" value="org.apache.cordova.pgUtils.PGUtils"/>
             </feature>
         </config-file>
 
-        <source-file src="src/android/pgUtils.java" target-dir="src/org/apache/cordova/pgUtils" />
+
+        <config-fPGe target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+        </config-file>
+
+        <source-file src="src/android/PGUtils.java" target-dir="src/org/apache/cordova/PGUtils" />
+    </platform>
+
+        <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="PGUtils">
+                <param name="ios-package" value="PGUtils"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/PGUtils.h" />
+        <header-file src="src/ios/DeviceManager.h" />
+        <header-file src="src/ios/KeychainItemWrapper.h" />
+        
+        <source-file src="src/ios/PGUtils.m" />
+        <source-file src="src/ios/DeviceManager.m" />
+        <source-file src="src/ios/KeychainItemWrapper.m" />
     </platform>
 
 </plugin>

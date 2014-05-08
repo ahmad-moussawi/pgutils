@@ -1,4 +1,4 @@
-cordova.define("org.apache.cordova.pgUtils.pgUtils", function(require, exports, module) { /*
+/*
  *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -20,7 +20,6 @@ cordova.define("org.apache.cordova.pgUtils.pgUtils", function(require, exports, 
 */
 
 var exec = require('cordova/exec');
-var platform = require('cordova/platform');
 
 /** Open a native alert dialog, with a customizable title and button text.
  *
@@ -29,7 +28,6 @@ var platform = require('cordova/platform');
  */
 module.exports = {
 	getUniqueDeviceId: function(completeCallback, errorCallback) {
-		exec(completeCallback, errorCallback, "pgUtils", "getUniqueDeviceId", []);
+		exec(completeCallback, errorCallback, "PGUtils", "getUniqueDeviceId", []);
 	}
 }
-});

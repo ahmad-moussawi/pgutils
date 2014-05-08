@@ -31,12 +31,12 @@ import android.telephony.TelephonyManager;
 /**
  * This class provides access to vibration on the device.
  */
-public class pgUtils extends CordovaPlugin {
+public class PGUtils extends CordovaPlugin {
 
   /**
    * Constructor.
    */
-  public pgUtils() { }
+  public PGUtils() { }
 
   /**
    * Executes the request and returns PluginResult.

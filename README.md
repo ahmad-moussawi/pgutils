@@ -3,24 +3,24 @@ cordova-plugin-utils
 
 Phonegap 3.*.* plugin that contains many helpful utils.
 
+## Installation
+### Install: ```cordova plugin add https://github.com/ahmad-moussawi/pgutils.git```
 
-Install: ```cordova plugin add https://github.com/ahmad-moussawi/pgutils.git```
+### Remove:  ```cordova plugin rm org.apache.cordova.pgutils```
 
-Delete:  ```cordova plugin rm org.apache.cordova.pgutils```
-
-use: 
+## Usage: 
 
 **get Unique Device Id**
 
 ```js
-navigator.pgUtils.getUniqueDeviceId(function(deviceId) { /* success */
-	console.log(deviceId); // => OK
+navigator.pgUtils.getUniqueDeviceId(function(deviceId) {
+	console.log(deviceId);
 }, 
-function(error) { /* error */
+function(error) {
 	console.log(error);
 });
 ```
 
-Permissions:
+## Permissions:
 
 This plugin requires the **android.permission.READ_PHONE_STATE** permission

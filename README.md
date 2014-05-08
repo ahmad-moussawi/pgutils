@@ -4,9 +4,9 @@ cordova-plugin-utils
 Phonegap 3.*.* plugin that contains many helpful utils.
 
 
-Install: ```cordova plugin add https://github.com/ahmad-moussawi/org.apache.cordova.pgutils.git```
+Install: ```cordova plugin add https://github.com/ahmad-moussawi/pgutils.git```
 
-Delete:  ```cordova plugin rm org.apache.cordova.pgutils```
+Delete:  ```cordova plugin rm pgutils```
 
 use: 
 

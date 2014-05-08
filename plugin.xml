@@ -25,7 +25,7 @@
             <uses-permission android:name="android.permission.READ_PHONE_STATE" />
         </config-file>
 
-        <source-file src="src/android/PGUtils.java" target-dir="src/org/apache/cordova/PGUtils" />
+        <source-file src="src/android/PGUtils.java" target-dir="src/org/apache/cordova/pgUtils" />
     </platform>
 
         <!-- ios -->

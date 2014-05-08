@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+           id="org.apache.cordova.pgUtils"
+      version="0.1.0">
+
+    <name>pgUtils</name>
+    <description>Helpful PhoneGap Utils plugins</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova, pgUtils, getuniqueid</keywords>
+
+    <js-module src="www/pgUtils.js" name="pgutils">
+        <merges target="navigator.pgUtils" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="pgUtils">
+                <param name="android-package" value="org.apache.cordova.pgUtils.pgUtils"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/pgUtils.java" target-dir="src/org/apache/cordova/pgutils" />
+    </platform>
+
+</plugin>

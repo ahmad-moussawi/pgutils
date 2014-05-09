@@ -1,14 +1,16 @@
-cordova-plugin-utils
+PhoneGap Utils
 ===========================================================================
 
-Phonegap 3.*.* plugin that contains many helpful utils.
+Phonegap 3.\*.\* plugin that contains many helpful utils.
 
 ## Installation
 ### Install: 
-```cordova plugin add https://github.com/ahmad-moussawi/pgutils.git```
+
+```phonegap plugin add https://github.com/ahmad-moussawi/pgutils.git```
 
 ### Remove:  
-```cordova plugin rm org.apache.cordova.pgUtils```
+
+```phonegap plugin rm org.apache.cordova.pgUtils```
 
 ## Usage: 
 
@@ -33,4 +35,4 @@ This plugin requires the **android.permission.READ_PHONE_STATE** permission
 
 ## Copyright
 This plugin is developed By [FOO](http://foo.mobi), all copyright are reserved.
-Thanks to Mona Mouteirik, Grace Ohanian, Hassan Kassem and Rami Fatayri
+Thanks to Mona Mouteirek, Grace Ohanian, Hassan Kassem and Rami Fatayri

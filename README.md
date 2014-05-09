@@ -4,13 +4,9 @@ PhoneGap Utils
 Phonegap 3.\*.\* plugin that contains many helpful utils.
 
 ## Installation
-### Install: 
+Install ```phonegap plugin add https://github.com/ahmad-moussawi/pgutils.git```
 
-```phonegap plugin add https://github.com/ahmad-moussawi/pgutils.git```
-
-### Remove:  
-
-```phonegap plugin rm org.apache.cordova.pgUtils```
+Remove ```phonegap plugin rm org.apache.cordova.pgUtils```
 
 ## Usage: 
 

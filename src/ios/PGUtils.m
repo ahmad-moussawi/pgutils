@@ -35,9 +35,14 @@
     [DeviceManager setAppId:APP_ID];
     
     NSString *deviceID = [DeviceManager getDeviceIdFromKeychain];
-    
+
     if(!deviceID){
         deviceID = [DeviceManager generateDeviceId];
+
+        // Store the key in the KeyChain
+        [DeviceManager storeDeviceIdInKeychain:deviceID];
+
+
     }
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:deviceID];

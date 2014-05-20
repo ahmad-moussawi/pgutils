@@ -29,5 +29,14 @@ var exec = require('cordova/exec');
 module.exports = {
 	getUniqueDeviceId: function(completeCallback, errorCallback) {
 		exec(completeCallback, errorCallback, "PGUtils", "getUniqueDeviceId", []);
-	}
+	},
+	
+	openStore: function(appId, completeCallback, errorCallback) {
+		exec(completeCallback, errorCallback, "PGUtils", "openStore", [appId]);
+	},
+
+	openApp: function(appId, completeCallback, errorCallback) {
+		exec(completeCallback, errorCallback, "PGUtils", "openApp", [appId]);
+	},
+	
 }

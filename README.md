@@ -10,9 +10,14 @@ Remove ```phonegap plugin rm org.apache.cordova.pgUtils```
 
 ## Usage: 
 
-**get Unique Device Id**
+###getUniqueDeviceId
 
-```js
+param|type|required|note
+-----|----|--------|----
+successCallback|`function(string deviceId)`|no|function with deviceId as argument
+errorCallback|`function(object error)`|no|
+
+```javascript
 navigator.PGUtils.getUniqueDeviceId(function(deviceId) {
 	console.log(deviceId);
 }, 
@@ -20,10 +25,40 @@ function(error) {
 	console.log(error);
 });
 ```
+------------------
+###openApp
+param|type|required|note
+-----|----|--------|----
+appId|string|yes| the package id for android i.e. `com.twitter.android` and the app schema for iOs i.e. `id8787663` or `myAppId`
+successCallback|`function(string status)`|no| `status` can be on of `OK`, `MARKET` if the app is not found and the market has opened, `MARKET-BROWSER` (only for android) if the app is not found and the market is opened via the browser
+errorCallback|`function(object error)`|no|
+```javascript
+navigator.PGUtils.openApp(appId, function(status){
+    console.log(status);
+},
+function(error) {
+    console.log(error);
+});
+```
+----------------
+###openStore
+param|type|required|note
+-----|----|--------|----
+appId|string|yes| the package id for android i.e. `com.twitter.android` and the app schema for iOs i.e. `id8787663` or `myAppId`
+successCallback|`function(string status)`|no| `status` can be on of `MARKET`, `MARKET-BROWSER` (only for android) if the market is opened via the browser
+errorCallback|`function(object error)`|no|
+```javascript
+navigator.PGUtils.openStore(appId, function(status){
+    console.log(status);
+},
+function(error) {
+    console.log(error);
+});
+```
 
 ## Permissions:
 Android:
-This plugin requires the **android.permission.READ_PHONE_STATE** permission 
+This plugin requires the **android.permission.READ_PHONE_STATE** permission to calculate the deviceId
 
 ## iOS note
 - Add the following flag `-fno-objc-arc` to `KeychainItemWrapper.m` and `DeviceManager.m` (Build Phases >> Compile Sources Section)
@@ -32,4 +67,3 @@ This plugin requires the **android.permission.READ_PHONE_STATE** permission
 
 ## Copyright
 This plugin is developed By [FOO](http://foo.mobi), all copyright are reserved.
-Thanks to Mona Mouteirek, Grace Ohanian, Hassan Kassem and Rami Fatayri

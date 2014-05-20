@@ -24,5 +24,6 @@
 {}
 
 - (void)getUniqueDeviceId:(CDVInvokedUrlCommand*)command;
-
+- (void)openStore:(CDVInvokedUrlCommand*)command;
+- (void)openApp:(CDVInvokedUrlCommand*)command;
 @end

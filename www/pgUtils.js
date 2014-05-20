@@ -20,12 +20,6 @@
 */
 
 var exec = require('cordova/exec');
-
-/** Open a native alert dialog, with a customizable title and button text.
- *
- * @param {String} message              app name
- * @param {Function} completeCallback   The callback that is called when open app
- */
 module.exports = {
 	getUniqueDeviceId: function(completeCallback, errorCallback) {
 		exec(completeCallback, errorCallback, "PGUtils", "getUniqueDeviceId", []);

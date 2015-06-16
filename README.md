@@ -33,6 +33,8 @@ appId|string|yes| the package id for android i.e. `com.twitter.android` and the 
 successCallback|`function(string status)`|no| `status` can be on of `OK`, `MARKET` if the app is not found and the market has opened, `MARKET-BROWSER` (only for android) if the app is not found and the market is opened via the browser
 errorCallback|`function(object error)`|no|
 ```javascript
+
+// on iOS: the appId should be in the following format: scheme://storeId, e.g. `myapp://id876656`
 navigator.PGUtils.openApp(appId, function(status){
     console.log(status);
 },
@@ -48,6 +50,8 @@ appId|string|yes| the package id for android i.e. `com.twitter.android` and the 
 successCallback|`function(string status)`|no| `status` can be on of `MARKET`, `MARKET-BROWSER` (only for android) if the market is opened via the browser
 errorCallback|`function(object error)`|no|
 ```javascript
+
+// on iOS: the appId should be in the following format: scheme://storeId, e.g. `myapp://id876656`
 navigator.PGUtils.openStore(appId, function(status){
     console.log(status);
 },
@@ -63,7 +67,6 @@ This plugin requires the **android.permission.READ_PHONE_STATE** permission to c
 ## iOS note
 - Add the following flag `-fno-objc-arc` to `KeychainItemWrapper.m` and `DeviceManager.m` (Build Phases >> Compile Sources Section)
 - Add the `Security.framework` (Project settings >> Linked Frameworks and Libraries section)
-- Change the APP_ID to something unique, i.e. the bundle id in `PGUtils.m` Line 25
 
 ## Copyright
 This plugin is developed By [FOO](http://foo.mobi), all copyright are reserved.

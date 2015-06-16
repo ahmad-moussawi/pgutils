@@ -22,7 +22,7 @@
 #import "PGUtils.h"
 #import "DeviceManager.h"
 
-#define APP_ID @"mobi.foo.ahmad"
+#define APP_ID NSString [[NSBundle mainBundle] bundleIdentifier]
 
 
 @interface PGUtils () {}
@@ -47,31 +47,38 @@
 }
 
 - (void) openStore:(CDVInvokedUrlCommand*) command {
+    
+    NSString* argument = [command.arguments objectAtIndex:0];
+    NSArray *arg = [argument componentsSeparatedByString:@"/"];
+    NSString *ID = [arg lastObject];
+
     CDVPluginResult* pluginResult = nil;
-    NSString* scheme = [command.arguments objectAtIndex:0];
     UIApplication *myApp = [UIApplication sharedApplication];
-    NSString * appStoreUrl = [NSString stringWithFormat: @"itms-apps://itunes.apple.com/us/app/%@", scheme];
+    NSString * appStoreUrl = [NSString stringWithFormat: @"itms-apps://itunes.apple.com/us/app/%@", ID];
     [myApp openURL:[NSURL URLWithString:appStoreUrl]];
     pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:("MARKET")];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void) openApp:(CDVInvokedUrlCommand*) command {
- 	
- 	CDVPluginResult* pluginResult = nil;
     
-    NSString* scheme = [command.arguments objectAtIndex:0];
+    CDVPluginResult* pluginResult = nil;
     
-    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:scheme]]) {
+    NSString* argument = [command.arguments objectAtIndex:0];
+    NSArray *arg = [argument componentsSeparatedByString:@"/"];
+    NSString *scheme = [[arg firstObject] stringByAppendingString:@"://"];
+
+    UIApplication *myApp = [UIApplication sharedApplication];
+    
+    if ([myApp canOpenURL:[NSURL URLWithString:scheme]]) {
+        [myApp openURL:[NSURL URLWithString:scheme]];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:("OK")];
-    	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
+    
     else {
-   		[self openStore:command];
+        [self openStore:command];
     }
     
 }
-
-
-
 @end

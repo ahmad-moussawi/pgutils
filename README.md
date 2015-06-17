@@ -34,7 +34,7 @@ successCallback|`function(string status)`|no| `status` can be on of `OK`, `MARKE
 errorCallback|`function(object error)`|no|
 ```javascript
 
-// on iOS: the appId should be in the following format: scheme://storeId, e.g. `myapp://id876656`
+// on iOS: the appId should be in the following format: <scheme>/<storeId>, e.g. `myapp/id876656`
 navigator.PGUtils.openApp(appId, function(status){
     console.log(status);
 },
@@ -51,7 +51,7 @@ successCallback|`function(string status)`|no| `status` can be on of `MARKET`, `M
 errorCallback|`function(object error)`|no|
 ```javascript
 
-// on iOS: the appId should be in the following format: scheme://storeId, e.g. `myapp://id876656`
+// on iOS: the appId should be in the following format: <scheme>/<storeId>, e.g. `myapp/id876656`
 navigator.PGUtils.openStore(appId, function(status){
     console.log(status);
 },

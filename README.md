@@ -65,7 +65,7 @@ Android:
 This plugin requires the **android.permission.READ_PHONE_STATE** permission to calculate the deviceId
 
 ## iOS note
-- Add the following flag `-fno-objc-arc` to `KeychainItemWrapper.m` and `DeviceManager.m` (Build Phases >> Compile Sources Section)
+- Add the following flag `-fno-objc-arc` to `KeychainItemWrapper.m`, `PGUtils.m` and `DeviceManager.m` (Build Phases >> Compile Sources Section)
 - Add the `Security.framework` (Project settings >> Linked Frameworks and Libraries section)
 
 ## Copyright

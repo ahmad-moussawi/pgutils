@@ -10,7 +10,7 @@ Remove ```phonegap plugin rm org.apache.cordova.pgUtils```
 
 ## Usage: 
 
-###getUniqueDeviceId
+### getUniqueDeviceId
 
 param|type|required|note
 -----|----|--------|----
@@ -26,12 +26,14 @@ function(error) {
 });
 ```
 ------------------
-###openApp
+### openApp
+
 param|type|required|note
 -----|----|--------|----
 appId|string|yes| the package id for android i.e. `com.twitter.android` and the app schema for iOs i.e. `id8787663` or `myAppId`
 successCallback|`function(string status)`|no| `status` can be on of `OK`, `MARKET` if the app is not found and the market has opened, `MARKET-BROWSER` (only for android) if the app is not found and the market is opened via the browser
 errorCallback|`function(object error)`|no|
+
 ```javascript
 
 // on iOS: the appId should be in the following format: <scheme>/<storeId>, e.g. `myapp/id876656`
@@ -43,12 +45,15 @@ function(error) {
 });
 ```
 ----------------
-###openStore
+
+### openStore
+
 param|type|required|note
 -----|----|--------|----
 appId|string|yes| the package id for android i.e. `com.twitter.android` and the app schema for iOs i.e. `id8787663` or `myAppId`
 successCallback|`function(string status)`|no| `status` can be on of `MARKET`, `MARKET-BROWSER` (only for android) if the market is opened via the browser
 errorCallback|`function(object error)`|no|
+
 ```javascript
 
 // on iOS: the appId should be in the following format: <scheme>/<storeId>, e.g. `myapp/id876656`
